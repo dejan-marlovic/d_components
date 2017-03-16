@@ -1,0 +1,14 @@
+<h3>Tooltip Source</h3>
+  <glyph icon={{glyphName}}
+         tooltipSource
+         size="medium"
+         #ref6="tooltipSource">
+  </glyph>
+
+<material-popup [source]="ref6"
+                enforceSpaceConstraints
+                [autoDismiss]="false">
+  <div class="source-popup">
+    {{text}}
+  </div>
+</material-popup>
