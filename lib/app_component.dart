@@ -5,13 +5,14 @@ import 'package:angular2/core.dart';
 import 'package:angular2_components/angular2_components.dart';
 
 import 'dTooltip/dTooltip.dart';
+import 'dSlider/dSlider.dart';
 
 @Component(
   selector: 'my-app',
   styleUrls: const ['app_component.css'],
   templateUrl: 'app_component.html',
-  directives: const [materialDirectives, dTooltip],
-  providers: const [materialProviders, dTooltip],
+  directives: const [materialDirectives, dTooltip, dSlider],
+  providers: const [materialProviders, dTooltip, dSlider],
 )
 class AppComponent {
 
