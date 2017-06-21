@@ -1,0 +1,31 @@
+
+#top {
+    background-color: pink;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transition: box-shadow 0.4s;
+    -webkit-transition: -webkit-box-shadow 0.4s;
+    -moz-transition: -moz-box-shadow 0.4s;
+    -o-transition: box-shadow 0.4s;
+    -webkit-box-shadow: 0;
+    -moz-box-shadow: 0;
+    box-shadow: 0;
+}
+
+
+#top.follow {
+    position: fixed;
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+
+
