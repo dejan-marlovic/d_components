@@ -5,20 +5,17 @@ import 'package:angular2/core.dart';
 import 'package:angular2_components/angular2_components.dart';
 
 @Component(
-  selector: 'dSlider',
-  styleUrls: const ['dSlider.css'],
-  templateUrl: 'dSlider.html',
+  selector: 'd_tooltip',
+  styleUrls: const ['d_tooltip.css'],
+  templateUrl: 'd_tooltip.html',
   directives: const [materialDirectives],
   providers: const [materialProviders],
 )
-class dSlider {
+class dTooltip {
 
   @Input()
-  String currentValue;
+  String text;
+
   @Input()
-  String max;
-  @Input()
-  String min;
-  @Input()
-  String step;
+  String glyphName;
 }
