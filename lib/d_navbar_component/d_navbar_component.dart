@@ -44,6 +44,9 @@ class dNavbar
 
   @Input('allwaysShow')
   bool allwaysShow = false;
+
+  @Input ('color')
+  String color="white";
 }
 
 
