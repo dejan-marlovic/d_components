@@ -1,12 +1,11 @@
-
-#top {
-    background-color: pink;
+#d_top
+{
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
     position: absolute;
     width: 100%;
     top: 0;
@@ -19,13 +18,24 @@
     -webkit-box-shadow: 0;
     -moz-box-shadow: 0;
     box-shadow: 0;
+    overflow: hidden;
 }
 
-
-#top.follow {
+#d_top.follow {
     position: fixed;
     -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+
+:host /deep/ ul
+{
+    list-style-type: none;
+    display: inline;
+}
+
+:host /deep/ li
+{
+    display: inline;
+}
 
 

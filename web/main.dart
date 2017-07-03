@@ -2,7 +2,6 @@
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular2/platform/browser.dart';
-
 import 'package:d_components/app_component.dart';
 
 void main() {
