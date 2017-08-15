@@ -4,11 +4,11 @@ import 'package:angular2/core.dart';
 import 'dart:html';
 import 'dart:math';
 @Component(
-  selector: 'd_navbar_component',
-  styleUrls: const ['d_navbar_component.css'],
-  templateUrl: 'd_navbar_component.html',
+  selector: 'd-navbar',
+  styleUrls: const ['d_navbar.css'],
+  templateUrl: 'd_navbar.html',
 )
-class dNavbar
+class dNavbarComponent
 {
   dNavbar()
   {
