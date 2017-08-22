@@ -10,8 +10,9 @@ import 'dart:math';
 )
 class dNavbarComponent
 {
-  dNavbar()
+  dNavbarComponent()
   {
+    print("listening to window");
     window.onScroll.listen((event)
     {
       if(allwaysShow == false)
