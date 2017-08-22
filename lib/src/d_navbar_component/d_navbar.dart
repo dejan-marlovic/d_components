@@ -8,24 +8,29 @@ import 'dart:math';
   styleUrls: const ['d_navbar.css'],
   templateUrl: 'd_navbar.html',
 )
-class dNavbarComponent
+class dNavbarComponent implements OnChanges
 {
   dNavbarComponent()
   {
-    print("listening to window");
     window.onScroll.listen((event)
     {
-      if(allwaysShow == false)
+      if (alwaysShow == false)
       {
         int deltaScrollY = window.scrollY - _previousScrollY;
         offset = clamp(offset + deltaScrollY, 0, height);
         _previousScrollY = window.scrollY;
       }
-      else
-        offset = 0;
+      else offset = 0;
     });
   }
 
+  void ngOnChanges(Map<String, SimpleChange> changes)
+  {
+    if (changes.containsKey("height"))
+    {
+      window.document.querySelector("body").style.paddingTop = "${height}px";
+    }
+  }
   int clamp(int value, int minimum, int maximum)
   {
     return max(minimum, min(maximum, value));
@@ -43,11 +48,11 @@ class dNavbarComponent
   @Input('height')
   int height = 100;
 
-  @Input('allwaysShow')
-  bool allwaysShow = false;
+  @Input('alwaysShow')
+  bool alwaysShow = false;
 
-  @Input ('color')
-  String color="white";
+  @Input('color')
+  String color = "white";
 }
 
 
