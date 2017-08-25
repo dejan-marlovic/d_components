@@ -12,15 +12,16 @@ class dNavbarComponent implements OnChanges
 {
   dNavbarComponent()
   {
+    window.document.querySelector("body").style.paddingTop = "${height}px";
     window.onScroll.listen((event)
     {
-      if (alwaysShow == false)
+      if (alwaysShow) offset = 0;
+      else 
       {
         int deltaScrollY = window.scrollY - _previousScrollY;
-        offset = clamp(offset + deltaScrollY, 0, height);
+        offset = _clamp(offset + deltaScrollY, 0, height);
         _previousScrollY = window.scrollY;
-      }
-      else offset = 0;
+      }      
     });
   }
 
@@ -31,7 +32,7 @@ class dNavbarComponent implements OnChanges
       window.document.querySelector("body").style.paddingTop = "${height}px";
     }
   }
-  int clamp(int value, int minimum, int maximum)
+  int _clamp(int value, int minimum, int maximum)
   {
     return max(minimum, min(maximum, value));
   }
@@ -39,7 +40,6 @@ class dNavbarComponent implements OnChanges
   bool get isTop => window.scrollY == 0;
 
   int offset = 0;
-
   int _previousScrollY = 0;
 
   @Input('backgroundColor')
@@ -50,9 +50,6 @@ class dNavbarComponent implements OnChanges
 
   @Input('alwaysShow')
   bool alwaysShow = false;
-
-  @Input('color')
-  String color = "white";
 }
 
 
