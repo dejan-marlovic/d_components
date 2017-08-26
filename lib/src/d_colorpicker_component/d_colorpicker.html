@@ -1,4 +1,4 @@
-<label for="{{id}}" style.background-color="{{color}}">
+<label [attr.for]="id" style.background-color="{{color}}">
     <input class="colorInput" [id]="id" type="color" [(ngModel)]="color" />
 </label>
 <form [ngFormModel]="form">
