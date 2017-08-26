@@ -13,7 +13,10 @@ import 'package:angular_components/angular_components.dart';
 )
 class dColorPickerComponent implements OnDestroy, AfterContentInit
 {
-  dColorPickerComponent(this._formBuilder);
+  dColorPickerComponent(this._formBuilder) : instanceNo = _instanceCounter
+  {
+      _instanceCounter++;
+  }
 
   void ngAfterContentInit()
   {
@@ -26,6 +29,8 @@ class dColorPickerComponent implements OnDestroy, AfterContentInit
   }
 
   String get color => _color;
+    
+  String get id => "dColorPicker-$instanceNo";
 
   void set color(String value)
   {
@@ -33,7 +38,7 @@ class dColorPickerComponent implements OnDestroy, AfterContentInit
     _color  = value;
   }
 
-  String _color = "#FFFFFF";
+  String _color = "#fff";
   final StreamController<String> _valueStreamController = new StreamController.broadcast();
   final FormBuilder _formBuilder;
   ControlGroup form;
@@ -46,6 +51,9 @@ class dColorPickerComponent implements OnDestroy, AfterContentInit
 
   @Output('valueChange')
   Stream<String> get colorOutput => _valueStreamController.stream;
+  
+  final int instanceNo;
+  static int _instanceCounter = 0;
 }
 
 Map<String, String> cssColor(AbstractControl control)
