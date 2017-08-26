@@ -1,5 +1,5 @@
-<label for="colorInput" style.background-color="{{color}}">
-    <input id="colorInput" type="color" [(ngModel)]="color" />
+<label [for]="id" style.background-color="{{color}}">
+    <input [id]="id" type="color" [(ngModel)]="color" />
 </label>
 <form [ngFormModel]="form">
     <material-input ngControl="color" [(ngModel)]="color"></material-input>
