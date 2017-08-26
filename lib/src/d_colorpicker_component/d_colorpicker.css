@@ -1,4 +1,4 @@
-input#colorInput
+input.colorInput
 {
     visibility: hidden;
     width: 0;
