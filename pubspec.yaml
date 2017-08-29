@@ -2,16 +2,13 @@ name: d_components
 author: Dejan Marlovic <dmarlovic83@gmail.com>
 homepage: https://github.com/dejan-marlovic/d_components/
 description: A collection of AngularDart components
-version: 0.0.12
+version: 0.0.14
 environment:
      sdk: '>=1.24.0 <2.0.0'
 dependencies:
-  angular2: ^3.1.0
-  angular_components: ^0.5.3+1
+  angular: ^4.0.0-beta
+  angular_components: ^0.6.0-beta
   intl: ^0.15.1
 transformers:
-- angular2:
-    platform_directives:
-    - 'package:angular2/common.dart#COMMON_DIRECTIVES'
-    platform_pipes:
-    - 'package:angular2/common.dart#COMMON_PIPES'
+  - angular
+
