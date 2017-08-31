@@ -2,7 +2,7 @@ name: d_components
 author: Dejan Marlovic <dmarlovic83@gmail.com>
 homepage: https://github.com/dejan-marlovic/d_components/
 description: A collection of AngularDart components
-version: 0.0.14
+version: 0.0.16
 environment:
      sdk: '>=1.24.0 <2.0.0'
 dependencies:
