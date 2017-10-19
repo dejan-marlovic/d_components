@@ -21,19 +21,20 @@
     overflow: hidden;
 }
 
-#d_top.follow {
+#d_top.follow
+{
     position: fixed;
     -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
 
-:host /deep/ ul
+:host ::ng-deep ul
 {
     list-style-type: none;
     display: inline;
 }
 
-:host /deep/ li
+:host ::ng-deep li
 {
     display: inline;
 }
