@@ -9,6 +9,7 @@ environment:
 dependencies:
   angular: ^4.0.0
   angular_components: ^0.8.0
+  angular_forms: ^1.0.0
   intl: ^0.15.1
   sass_builder: ^1.0.1
 transformers:
@@ -17,4 +18,5 @@ transformers:
 web:
   compiler:
     debug: dartdevc
+
 
