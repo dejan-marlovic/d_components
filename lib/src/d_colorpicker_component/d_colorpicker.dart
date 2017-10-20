@@ -7,7 +7,7 @@ import 'package:angular_components/angular_components.dart';
 
 @Component(
     selector: 'd-colorpicker',
-    styleUrls: const ['d_colorpicker.css'],
+    styleUrls: const ['d_colorpicker.scss.css'],
     templateUrl: 'd_colorpicker.html',
     providers: const [],
     directives: const [materialDirectives, formDirectives],
