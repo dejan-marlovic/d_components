@@ -1,13 +1,14 @@
 // Copyright (c) 2017, dmarl. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
-import 'package:angular2/core.dart';
+import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 
 
 @Component(
     selector: 'd-timepicker',
     styleUrls: const ['d_timepicker.css'],
-    templateUrl: 'd_timepicker.html'
+    templateUrl: 'd_timepicker.html',
+    directives: const [COMMON_DIRECTIVES]
 )
 class dTimePickerComponent implements AfterContentInit
 {
