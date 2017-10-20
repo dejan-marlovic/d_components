@@ -15,8 +15,3 @@ dependencies:
 transformers:
   - angular
   - sass_builder
-web:
-  compiler:
-    debug: dartdevc
-
-
