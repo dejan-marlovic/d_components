@@ -5,7 +5,7 @@ import 'package:angular_components/angular_components.dart';
 
 @Component(
     selector: 'd-tooltip',
-    styleUrls: const ['d_tooltip.css'],
+    styleUrls: const ['d_tooltip.scss.css'],
     templateUrl: 'd_tooltip.html',
     directives: const [materialDirectives]
 )
