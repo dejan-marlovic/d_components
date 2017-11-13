@@ -6,37 +6,45 @@ import 'dart:math';
 @Component(
   selector: 'd-navbar',
   styleUrls: const ['d_navbar.scss.css'],
-  templateUrl: 'd_navbar.html',
+  templateUrl: 'd_navbar.html'
 )
-class dNavbarComponent implements  DoCheck
+class dNavbarComponent implements AfterViewInit
 {
-  dNavbarComponent()
+  dNavbarComponent(Element host)
   {
-    window.onScroll.listen((event)
+    _parentElement = host.parent;
+
+    _parentElement.onScroll.listen((event)
     {
       if (alwaysShow) offset = 0;
       else
       {
-        int deltaScrollY = window.scrollY - _previousScrollY;
+        int deltaScrollY = _parentElement.scrollTop - _previousScrollY;
         offset = _clamp(offset + deltaScrollY, 0, height);
-        _previousScrollY = window.scrollY;
+        _previousScrollY = _parentElement.scrollTop;
       }
     });
   }
 
-  void ngDoCheck()
+  void ngAfterViewInit()
   {
-    isTop = window.scrollY == 0;
+    /**
+     * Make sure nav doesn't overflow container scrollbar
+     */
+    navContainer.nativeElement.style.width = _parentElement.clientWidth.toString() + "px";
+    window.onResize.listen((_)
+    {
+      navContainer.nativeElement.style.width = _parentElement.clientWidth.toString() + "px";
+    });
   }
 
-  int _clamp(int value, int minimum, int maximum)
-  {
-    return max(minimum, min(maximum, value));
-  }
+  int _clamp(int value, int minimum, int maximum) => max(minimum, min(maximum, value));
 
-  bool isTop = false;
+  bool get isTop => (_parentElement == null) ? true : _parentElement.scrollTop == 0;
   int offset = 0;
   int _previousScrollY = 0;
+
+  DivElement _parentElement;
 
   @Input('backgroundColor')
   String backgroundColor = "white";
@@ -46,6 +54,9 @@ class dNavbarComponent implements  DoCheck
 
   @Input('alwaysShow')
   bool alwaysShow = false;
+
+  @ViewChild('navContainer')
+  ElementRef navContainer;
 }
 
 
