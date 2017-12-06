@@ -13,6 +13,7 @@ class dNavbarComponent implements AfterViewInit
   dNavbarComponent(Element host)
   {
     _parentElement = host.parent;
+   // _parentElement.style.paddingTop = "${height}px";
 
     _parentElement.onScroll.listen((event)
     {
