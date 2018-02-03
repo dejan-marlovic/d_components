@@ -6,7 +6,7 @@ import 'package:angular_forms/angular_forms.dart';
 
 @Component(
     selector: 'd-slider',
-    styleUrls: const ['d_slider.scss.css'],
+    styleUrls: const ['d_slider.css'],
     templateUrl: 'd_slider.html',
     directives: const [COMMON_DIRECTIVES, NgModel]
 )

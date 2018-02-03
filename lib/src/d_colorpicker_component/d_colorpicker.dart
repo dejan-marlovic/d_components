@@ -7,7 +7,7 @@ import 'package:angular_components/angular_components.dart';
 
 @Component(
     selector: 'd-colorpicker',
-    styleUrls: const ['d_colorpicker.scss.css'],
+    styleUrls: const ['d_colorpicker.css'],
     templateUrl: 'd_colorpicker.html',
     providers: const [],
     directives: const [materialDirectives, formDirectives],
@@ -21,7 +21,12 @@ class dColorPickerComponent implements OnDestroy, AfterContentInit
 
   void ngAfterContentInit()
   {
-    form = _formBuilder.group({"color":[color,Validators.compose([cssColor])]});
+    form = _formBuilder.group
+    (
+      {
+        "color":[color, Validators.compose([cssColor])],
+      }
+    );
   }
 
   void ngOnDestroy()

@@ -5,7 +5,7 @@ import 'dart:html';
 import 'dart:math';
 @Component(
   selector: 'd-navbar',
-  styleUrls: const ['d_navbar.scss.css'],
+  styleUrls: const ['d_navbar.css'],
   templateUrl: 'd_navbar.html'
 )
 class dNavbarComponent implements AfterViewInit

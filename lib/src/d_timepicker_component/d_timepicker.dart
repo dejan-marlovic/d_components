@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 
 @Component(
     selector: 'd-timepicker',
-    styleUrls: const ['d_timepicker.scss.css'],
+    styleUrls: const ['d_timepicker.css'],
     templateUrl: 'd_timepicker.html',
     directives: const [COMMON_DIRECTIVES]
 )
