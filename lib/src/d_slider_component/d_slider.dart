@@ -10,7 +10,7 @@ import 'package:angular_forms/angular_forms.dart';
     templateUrl: 'd_slider.html',
     directives: const [COMMON_DIRECTIVES, NgModel]
 )
-class dSliderComponent {
+class SliderComponent {
 
   @Input()
   String value;

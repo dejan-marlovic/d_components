@@ -6,49 +6,50 @@ import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/angular_components.dart';
 
 @Component(
-    selector: 'd-colorpicker',
-    styleUrls: const ['d_colorpicker.scss.css'],
-    templateUrl: 'd_colorpicker.html',
-    providers: const [],
-    directives: const [materialDirectives, formDirectives],
+  selector: 'd-colorpicker',
+  styleUrls: const ['d_colorpicker.scss.css'],
+  templateUrl: 'd_colorpicker.html',
+  providers: const [],
+  directives: const [materialDirectives, formDirectives],
 )
-class dColorPickerComponent implements OnDestroy, AfterContentInit
-{
-  dColorPickerComponent(this._formBuilder) : instanceNo = _instanceCounter
-  {
-      _instanceCounter++;
+class ColorPickerComponent
+    implements OnDestroy, AfterContentInit {
+  ColorPickerComponent(this._formBuilder) : instanceNo = _instanceCounter {
+    _instanceCounter++;
   }
 
-  void ngAfterContentInit()
-  {
-    form = _formBuilder.group({"color":[color,Validators.compose([cssColor])]});
+  @override
+  void ngAfterContentInit() {
+    form =
+        _formBuilder.group({'color': [color, Validators.compose([cssColor])]});
   }
 
-  void ngOnDestroy()
-  {
+  @override
+  void ngOnDestroy() {
     _valueStreamController.close();
   }
 
   String get color => _color;
-    
-  String get id => "dColorPicker-$instanceNo";
 
-  void set color(String value)
-  {
+  String get id => 'dColorPicker-$instanceNo';
+
+  set color(String value) {
     _valueStreamController.add(value);
-    _color  = value;
+    _color = value;
   }
 
-  String _color = "#fff";
-  final StreamController<String> _valueStreamController = new StreamController.broadcast();
+  String _color = '#fff';
+  final StreamController<String> _valueStreamController = new StreamController
+      .broadcast();
   final FormBuilder _formBuilder;
   ControlGroup form;
 
   @Input('value')
-  void set colorExternal(String value)
-  {
+  set colorExternal(String value) {
     _color = value;
   }
+
+  String get colorExternal => _color;
 
   @Output('valueChange')
   Stream<String> get colorOutput => _valueStreamController.stream;
@@ -57,13 +58,12 @@ class dColorPickerComponent implements OnDestroy, AfterContentInit
   static int _instanceCounter = 0;
 }
 
-Map<String, String> cssColor(AbstractControl control)
-{
-  RegExp pattern = new RegExp(r"(^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$)");
-  String result = pattern.stringMatch(control.value);
+Map<String, String> cssColor(AbstractControl control) {
+  final pattern = new RegExp(r'(^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$)');
+  final result = pattern.stringMatch(control.value);
 
   if (result == null || result.length != control.value.length)
-    return {"error":"ange ett hex-värde(#123456)"};
+    return {'error': 'ange ett hex-värde(#123456)'};
 
   return null;
 }

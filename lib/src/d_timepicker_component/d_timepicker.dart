@@ -10,16 +10,15 @@ import 'package:intl/intl.dart';
     templateUrl: 'd_timepicker.html',
     directives: const [COMMON_DIRECTIVES]
 )
-class dTimePickerComponent implements AfterContentInit
-{
-  void ngAfterContentInit()
-  {
-    startTime = new DateTime(now.year,now.month,now.day);
+class TimePickerComponent
+    implements AfterContentInit {
+  @override
+  void ngAfterContentInit() {
+    startTime = new DateTime(now.year, now.month, now.day);
     time = startTime;
     duration = new Duration(minutes: int.parse(stepMinutes));
-    
-    while (time.day == startTime.day)
-    {
+
+    while (time.day == startTime.day) {
       times.add(format.format(time));
       time = time.add(duration);
     }
@@ -29,7 +28,7 @@ class dTimePickerComponent implements AfterContentInit
   DateTime now = new DateTime.now();
   Duration duration;
   DateTime time;
-  List<String> times = new List<String>();
+  List<String> times = [];
   DateFormat format = new DateFormat('Hms');
 
   @Input('stepMinutes')
