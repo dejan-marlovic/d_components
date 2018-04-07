@@ -8,9 +8,9 @@ import 'package:angular_forms/angular_forms.dart';
     selector: 'd-slider',
     styleUrls: const ['d_slider.css'],
     templateUrl: 'd_slider.html',
-    directives: const [COMMON_DIRECTIVES, NgModel]
+    directives: const [coreDirectives, NgModel]
 )
-class dSliderComponent {
+class SliderComponent {
 
   @Input()
   String value;

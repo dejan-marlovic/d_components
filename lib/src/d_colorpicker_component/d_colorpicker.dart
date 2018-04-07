@@ -12,19 +12,20 @@ import 'package:angular_components/angular_components.dart';
     providers: const [],
     directives: const [materialDirectives, formDirectives],
 )
-class dColorPickerComponent implements OnDestroy, AfterContentInit
+class ColorPickerComponent implements OnDestroy, AfterContentInit
 {
-  dColorPickerComponent(this._formBuilder) : instanceNo = _instanceCounter
+  ColorPickerComponent() : instanceNo = _instanceCounter
   {
       _instanceCounter++;
   }
 
   void ngAfterContentInit()
   {
-    form = _formBuilder.group
+
+    form = FormBuilder.controlGroup
     (
       {
-        "color":[color, Validators.compose([cssColor])],
+        'color':[color, Validators.compose([cssColor])],
       }
     );
   }
@@ -36,21 +37,21 @@ class dColorPickerComponent implements OnDestroy, AfterContentInit
 
   String get color => _color;
     
-  String get id => "dColorPicker-$instanceNo";
+  String get id => 'dColorPicker-$instanceNo';
 
-  void set color(String value)
+  set color(String value)
   {
     _valueStreamController.add(value);
     _color  = value;
   }
 
-  String _color = "#fff";
+  String _color = '#fff';
   final StreamController<String> _valueStreamController = new StreamController.broadcast();
-  final FormBuilder _formBuilder;
   ControlGroup form;
 
   @Input('value')
-  void set colorExternal(String value)
+  // ignore: avoid_setters_without_getters
+  set colorExternal(String value)
   {
     _color = value;
   }
@@ -64,11 +65,11 @@ class dColorPickerComponent implements OnDestroy, AfterContentInit
 
 Map<String, String> cssColor(AbstractControl control)
 {
-  RegExp pattern = new RegExp(r"(^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$)");
-  String result = pattern.stringMatch(control.value);
+  final pattern = new RegExp(r'(^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$)');
+  final result = pattern.stringMatch(control.value);
 
   if (result == null || result.length != control.value.length)
-    return {"error":"ange ett hex-värde(#123456)"};
+    return {'error':'ange ett hex-värde(#123456)'};
 
   return null;
 }

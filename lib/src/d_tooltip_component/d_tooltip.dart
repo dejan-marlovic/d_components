@@ -9,7 +9,7 @@ import 'package:angular_components/angular_components.dart';
     templateUrl: 'd_tooltip.html',
     directives: const [materialDirectives]
 )
-class dTooltipComponent
+class TooltipComponent
 {
 
   @Input('text')

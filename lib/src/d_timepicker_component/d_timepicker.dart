@@ -8,9 +8,9 @@ import 'package:intl/intl.dart';
     selector: 'd-timepicker',
     styleUrls: const ['d_timepicker.css'],
     templateUrl: 'd_timepicker.html',
-    directives: const [COMMON_DIRECTIVES]
+    directives: const [coreDirectives]
 )
-class dTimePickerComponent implements AfterContentInit
+class TimePickerComponent implements AfterContentInit
 {
   void ngAfterContentInit()
   {
@@ -29,7 +29,7 @@ class dTimePickerComponent implements AfterContentInit
   DateTime now = new DateTime.now();
   Duration duration;
   DateTime time;
-  List<String> times = new List<String>();
+  List<String> times = [];
   DateFormat format = new DateFormat('Hms');
 
   @Input('stepMinutes')
