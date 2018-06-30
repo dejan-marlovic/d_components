@@ -7,14 +7,11 @@ import 'package:angular_components/angular_components.dart';
     selector: 'd-tooltip',
     styleUrls: const ['d_tooltip.css'],
     templateUrl: 'd_tooltip.html',
-    directives: const [materialDirectives]
-)
-class TooltipComponent
-{
-
-  @Input('text')
+    directives: const [materialDirectives])
+class TooltipComponent {
+  @Input()
   String text;
 
-  @Input('glyph')
-  String glyphName;
+  @Input()
+  String glyph;
 }
