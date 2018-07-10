@@ -7,7 +7,7 @@ import 'package:angular_components/angular_components.dart';
     selector: 'd-tooltip',
     styleUrls: const ['d_tooltip.css'],
     templateUrl: 'd_tooltip.html',
-    directives: const [MaterialPopupComponent, MaterialIconComponent])
+    directives: const [MaterialPopupComponent, MaterialIconComponent, PopupSourceDirective])
 class TooltipComponent {
   @Input()
   String text;
