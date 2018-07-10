@@ -10,7 +10,7 @@ import 'package:angular_components/angular_components.dart';
     styleUrls: const ['d_colorpicker.css'],
     templateUrl: 'd_colorpicker.html',
     providers: const [],
-    directives: const [materialDirectives, formDirectives],
+    directives: const [materialInputDirectives, formDirectives],
 )
 class ColorPickerComponent implements OnDestroy, AfterContentInit
 {
