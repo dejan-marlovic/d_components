@@ -5,10 +5,10 @@ description: A collection of AngularDart components
 version: 0.0.26
 
 environment:
-  sdk: '>=2.0.0-dev.65.0 <3.0.0'
+  sdk: '>=2.0.0 <3.0.0'
 dependencies:
-  angular: ^5.0.0-beta+2
-  angular_components: ^0.9.0-beta+1
-  angular_forms: ^2.0.0-beta+2
+  angular: ^5.0.0
+  angular_components: ^0.9.0
+  angular_forms: ^2.0.0
   intl: ^0.15.7
   sass_builder: ^2.1.1
