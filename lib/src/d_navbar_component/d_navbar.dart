@@ -8,9 +8,12 @@ import 'package:angular/angular.dart';
     selector: 'd-navbar',
     styleUrls: const ['d_navbar.css'],
     templateUrl: 'd_navbar.html')
-class NavbarComponent implements AfterViewInit {
-  NavbarComponent(this.host) {
-    _parentElement = host.parent;
+class NavbarComponent implements OnInit, AfterViewInit {
+  NavbarComponent(this.host);
+
+  @override
+  void ngOnInit() {
+    _parentElement = trackDocument ? window.document : host.parent;
     _parentElement.onScroll.listen((event) {
       if (alwaysShow)
         offset = 0;
@@ -22,6 +25,7 @@ class NavbarComponent implements AfterViewInit {
     });
   }
 
+  @override
   void ngAfterViewInit() {
     /**
      * Make sure nav doesn't overflow container scrollbar
@@ -52,4 +56,7 @@ class NavbarComponent implements AfterViewInit {
 
   @Input()
   bool alwaysShow = false;
+
+  @Input()
+  bool trackDocument = false;
 }
