@@ -12,11 +12,14 @@ class NavbarComponent implements OnInit, AfterViewInit {
   NavbarComponent(this.host);
 
   @override
-  void ngOnInit() {    
+  void ngOnInit() {
     _parentElement = trackDocument ? document.documentElement : host.parent;
-    _parentElement.onScroll.listen((event) {
-      if (alwaysShow)
+    
+    final s = trackDocument ? window : host.parent;
+    s.onScroll.listen((event) {
+      if (alwaysShow) {
         offset = 0;
+      }
       else {
         final deltaScrollY = _parentElement.scrollTop - _previousScrollY;
         offset = _clamp(offset + deltaScrollY, 0, height);
