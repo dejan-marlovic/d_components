@@ -33,11 +33,13 @@ class NavbarComponent implements OnInit, AfterViewInit {
     /**
      * Make sure nav doesn't overflow container scrollbar
      */
-    final navContainer = host.querySelector('#navContainer');
+    //final navContainer = host.querySelector('#navContainer');
+   /*
     navContainer.style.width = '${_parentElement.clientWidth}px';
+   
     window.onResize.listen((_) {
       navContainer.style.width = '${_parentElement.clientWidth}px';
-    });
+    });*/
   }
 
   int _clamp(int value, int minimum, int maximum) =>
