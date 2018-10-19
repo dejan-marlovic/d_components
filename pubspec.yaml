@@ -8,7 +8,7 @@ environment:
   sdk: '>=2.0.0 <3.0.0'
 dependencies:
   angular: ^5.0.0
-  angular_components: ^0.9.0
+  angular_components: ^0.10.0
   angular_forms: ^2.0.0
   intl: ^0.15.7
-  sass_builder: ^2.1.1
+  sass_builder: ^2.1.2
