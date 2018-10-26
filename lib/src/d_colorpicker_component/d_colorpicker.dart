@@ -8,69 +8,54 @@ import 'package:angular_components/angular_components.dart';
 @Component(
     selector: 'd-colorpicker',
     styleUrls: const ['d_colorpicker.css'],
-    templateUrl: 'd_colorpicker.html',
-    providers: const [],
+    templateUrl: 'd_colorpicker.html',    
     directives: const [materialInputDirectives, formDirectives],
-)
-class ColorPickerComponent implements OnDestroy, AfterContentInit
-{
-  ColorPickerComponent() : instanceNo = _instanceCounter
-  {
-      _instanceCounter++;
+    changeDetection: ChangeDetectionStrategy.OnPush)
+class ColorPickerComponent implements OnDestroy {
+  ColorPickerComponent() : instanceNo = _instanceCounter {
+    _instanceCounter++;
   }
 
-  void ngAfterContentInit()
-  {
-
-    form = FormBuilder.controlGroup
-    (
-      {
-        'color':[color, Validators.compose([cssColor])],
-      }
-    );
-  }
-
-  void ngOnDestroy()
-  {
+  void ngOnDestroy() {
     _valueStreamController.close();
   }
 
   String get color => _color;
-    
+
   String get id => 'dColorPicker-$instanceNo';
 
-  set color(String value)
-  {
+  set color(String value) {
     _valueStreamController.add(value);
-    _color  = value;
+    _color = value;
   }
 
   String _color = '#fff';
-  final StreamController<String> _valueStreamController = new StreamController.broadcast();
-  ControlGroup form;
+  final StreamController<String> _valueStreamController =
+      new StreamController.broadcast();
+
+  ControlGroup form = new ControlGroup({
+    'color': new Control('', cssColor),
+  });
 
   @Input('value')
   // ignore: avoid_setters_without_getters
-  set colorExternal(String value)
-  {
+  set colorExternal(String value) {
     _color = value;
   }
 
   @Output('valueChange')
   Stream<String> get colorOutput => _valueStreamController.stream;
-  
+
   final int instanceNo;
   static int _instanceCounter = 0;
 }
 
-Map<String, String> cssColor(AbstractControl control)
-{
+Map<String, String> cssColor(AbstractControl control) {
   final pattern = new RegExp(r'(^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$)');
   final result = pattern.stringMatch(control.value);
 
   if (result == null || result.length != control.value.length)
-    return {'error':'ange ett hex-värde(#123456)'};
+    return {'error': 'enter a hex value'};
 
   return null;
 }
-
