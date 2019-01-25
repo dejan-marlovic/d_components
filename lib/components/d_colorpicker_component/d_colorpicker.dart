@@ -6,38 +6,16 @@ import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/angular_components.dart';
 
 @Component(
-<<<<<<< HEAD
-  selector: 'd-colorpicker',
-  styleUrls: const ['d_colorpicker.scss.css'],
-  templateUrl: 'd_colorpicker.html',
-  providers: const [],
-  directives: const [materialDirectives, formDirectives],
-)
-class ColorPickerComponent
-    implements OnDestroy, AfterContentInit {
-  ColorPickerComponent(this._formBuilder) : instanceNo = _instanceCounter {
-    _instanceCounter++;
-  }
-
-  @override
-  void ngAfterContentInit() {
-    form =
-        _formBuilder.group({'color': [color, Validators.compose([cssColor])]});
-  }
-
-  @override
-=======
     selector: 'd-colorpicker',
-    styleUrls: const ['d_colorpicker.css'],
-    templateUrl: 'd_colorpicker.html',    
-    directives: const [materialInputDirectives, formDirectives],
+    styleUrls: ['d_colorpicker.css'],
+    templateUrl: 'd_colorpicker.html',
+    directives: [materialInputDirectives, formDirectives],
     changeDetection: ChangeDetectionStrategy.OnPush)
 class ColorPickerComponent implements OnDestroy {
   ColorPickerComponent() : instanceNo = _instanceCounter {
     _instanceCounter++;
   }
 
->>>>>>> 6cb875bad4d24e0f3f0bca15cd688e8156e8001f
   void ngOnDestroy() {
     _valueStreamController.close();
   }
@@ -52,24 +30,15 @@ class ColorPickerComponent implements OnDestroy {
   }
 
   String _color = '#fff';
-<<<<<<< HEAD
-  final StreamController<String> _valueStreamController = new StreamController
-      .broadcast();
-  final FormBuilder _formBuilder;
-  ControlGroup form;
-
-  @Input('value')
-=======
   final StreamController<String> _valueStreamController =
-      new StreamController.broadcast();
+      StreamController.broadcast();
 
-  ControlGroup form = new ControlGroup({
-    'color': new Control('', cssColor),
+  ControlGroup form = ControlGroup({
+    'color': Control('', cssColor),
   });
 
   @Input('value')
   // ignore: avoid_setters_without_getters
->>>>>>> 6cb875bad4d24e0f3f0bca15cd688e8156e8001f
   set colorExternal(String value) {
     _color = value;
   }
@@ -84,15 +53,11 @@ class ColorPickerComponent implements OnDestroy {
 }
 
 Map<String, String> cssColor(AbstractControl control) {
-  final pattern = new RegExp(r'(^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$)');
+  final pattern = RegExp(r'(^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$)');
   final result = pattern.stringMatch(control.value);
 
   if (result == null || result.length != control.value.length)
-<<<<<<< HEAD
-    return {'error': 'ange ett hex-värde(#123456)'};
-=======
     return {'error': 'enter a hex value'};
->>>>>>> 6cb875bad4d24e0f3f0bca15cd688e8156e8001f
 
   return null;
 }

@@ -3,15 +3,12 @@
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 
-
 @Component(
     selector: 'd-slider',
-    styleUrls: const ['d_slider.css'],
+    styleUrls: ['d_slider.css'],
     templateUrl: 'd_slider.html',
-    directives: const [coreDirectives, NgModel]
-)
+    directives: [coreDirectives, NgModel])
 class SliderComponent {
-
   @Input()
   String value;
   @Input()

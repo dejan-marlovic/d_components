@@ -6,7 +6,7 @@ import 'package:angular/angular.dart';
 
 @Component(
     selector: 'd-navbar',
-    styleUrls: const ['d_navbar.css'],
+    styleUrls: ['d_navbar.css'],
     templateUrl: 'd_navbar.html')
 class NavbarComponent implements OnInit {
   NavbarComponent(this.host);

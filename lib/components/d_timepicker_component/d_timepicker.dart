@@ -3,20 +3,16 @@
 import 'package:angular/angular.dart';
 import 'package:intl/intl.dart';
 
-
 @Component(
     selector: 'd-timepicker',
-    styleUrls: const ['d_timepicker.css'],
+    styleUrls: ['d_timepicker.css'],
     templateUrl: 'd_timepicker.html',
-    directives: const [coreDirectives]
-)
-class TimePickerComponent implements AfterContentInit
-{
-  void ngAfterContentInit()
-  {
-    startTime = new DateTime(now.year,now.month,now.day);
+    directives: [coreDirectives])
+class TimePickerComponent implements AfterContentInit {
+  void ngAfterContentInit() {
+    startTime = DateTime(now.year, now.month, now.day);
     time = startTime;
-    duration = new Duration(minutes: int.parse(stepMinutes));
+    duration = Duration(minutes: int.parse(stepMinutes));
 
     while (time.day == startTime.day) {
       times.add(format.format(time));
@@ -25,14 +21,12 @@ class TimePickerComponent implements AfterContentInit
   }
 
   DateTime startTime;
-  DateTime now = new DateTime.now();
+  DateTime now = DateTime.now();
   Duration duration;
   DateTime time;
   List<String> times = [];
-  DateFormat format = new DateFormat('Hms');
+  DateFormat format = DateFormat('Hms');
 
   @Input('stepMinutes')
   String stepMinutes;
 }
-
-
