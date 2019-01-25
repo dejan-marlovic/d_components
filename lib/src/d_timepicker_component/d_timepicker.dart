@@ -6,15 +6,23 @@ import 'package:intl/intl.dart';
 
 @Component(
     selector: 'd-timepicker',
-    styleUrls: const ['d_timepicker.scss.css'],
+    styleUrls: const ['d_timepicker.css'],
     templateUrl: 'd_timepicker.html',
-    directives: const [COMMON_DIRECTIVES]
+    directives: const [coreDirectives]
 )
+<<<<<<< HEAD
 class TimePickerComponent
     implements AfterContentInit {
   @override
   void ngAfterContentInit() {
     startTime = new DateTime(now.year, now.month, now.day);
+=======
+class TimePickerComponent implements AfterContentInit
+{
+  void ngAfterContentInit()
+  {
+    startTime = new DateTime(now.year,now.month,now.day);
+>>>>>>> 6cb875bad4d24e0f3f0bca15cd688e8156e8001f
     time = startTime;
     duration = new Duration(minutes: int.parse(stepMinutes));
 

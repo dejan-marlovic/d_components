@@ -6,6 +6,7 @@ import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_components/angular_components.dart';
 
 @Component(
+<<<<<<< HEAD
   selector: 'd-colorpicker',
   styleUrls: const ['d_colorpicker.scss.css'],
   templateUrl: 'd_colorpicker.html',
@@ -25,6 +26,18 @@ class ColorPickerComponent
   }
 
   @override
+=======
+    selector: 'd-colorpicker',
+    styleUrls: const ['d_colorpicker.css'],
+    templateUrl: 'd_colorpicker.html',    
+    directives: const [materialInputDirectives, formDirectives],
+    changeDetection: ChangeDetectionStrategy.OnPush)
+class ColorPickerComponent implements OnDestroy {
+  ColorPickerComponent() : instanceNo = _instanceCounter {
+    _instanceCounter++;
+  }
+
+>>>>>>> 6cb875bad4d24e0f3f0bca15cd688e8156e8001f
   void ngOnDestroy() {
     _valueStreamController.close();
   }
@@ -39,12 +52,24 @@ class ColorPickerComponent
   }
 
   String _color = '#fff';
+<<<<<<< HEAD
   final StreamController<String> _valueStreamController = new StreamController
       .broadcast();
   final FormBuilder _formBuilder;
   ControlGroup form;
 
   @Input('value')
+=======
+  final StreamController<String> _valueStreamController =
+      new StreamController.broadcast();
+
+  ControlGroup form = new ControlGroup({
+    'color': new Control('', cssColor),
+  });
+
+  @Input('value')
+  // ignore: avoid_setters_without_getters
+>>>>>>> 6cb875bad4d24e0f3f0bca15cd688e8156e8001f
   set colorExternal(String value) {
     _color = value;
   }
@@ -53,7 +78,7 @@ class ColorPickerComponent
 
   @Output('valueChange')
   Stream<String> get colorOutput => _valueStreamController.stream;
-  
+
   final int instanceNo;
   static int _instanceCounter = 0;
 }
@@ -63,8 +88,11 @@ Map<String, String> cssColor(AbstractControl control) {
   final result = pattern.stringMatch(control.value);
 
   if (result == null || result.length != control.value.length)
+<<<<<<< HEAD
     return {'error': 'ange ett hex-värde(#123456)'};
+=======
+    return {'error': 'enter a hex value'};
+>>>>>>> 6cb875bad4d24e0f3f0bca15cd688e8156e8001f
 
   return null;
 }
-
