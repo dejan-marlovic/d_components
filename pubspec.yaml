@@ -2,6 +2,7 @@ name: d_components
 description: Administration dashboard for bokain booking system
 version: 0.2.0
 environment:
+<<<<<<< HEAD
   sdk: '>=2.0.0-dev.23.0 <2.0.0'
 
 dependencies:
@@ -20,3 +21,12 @@ dev_dependencies:
 dependency_overrides:
   #code_builder: 3.0.3
   #observable: 0.21.0
+=======
+  sdk: '>=2.0.0 <3.0.0'
+dependencies:
+  angular: ^5.2.0
+  angular_components: ^0.11.0
+  angular_forms: ^2.1.1
+  intl: ^0.15.7
+  sass_builder: ^2.1.2
+>>>>>>> 6cb875bad4d24e0f3f0bca15cd688e8156e8001f

@@ -1,4 +1,4 @@
-#d_top
+:host > div#navContainer
 {
     user-select: none;
     -webkit-user-select: none;
@@ -6,8 +6,7 @@
     -ms-user-select: none;
     margin: 0;
     padding: 0;
-    position: absolute;
-    width: 100%;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 99;
@@ -19,24 +18,26 @@
     -moz-box-shadow: 0;
     box-shadow: 0;
     overflow: hidden;
+    width: 100%;
+    max-width: 100vw;
+
+    ::ng-deep
+    {
+        ul
+        {
+            list-style-type: none;
+            display: inline;
+            li
+            {
+                display: inline;
+            }
+        }
+    }
 }
 
-#d_top.follow
+:host > div.follow
 {
-    position: fixed;
     -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-
-:host ::ng-deep ul
-{
-    list-style-type: none;
-    display: inline;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
-:host ::ng-deep li
-{
-    display: inline;
-}
-
-

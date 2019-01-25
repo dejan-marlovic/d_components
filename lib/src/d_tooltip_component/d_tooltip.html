@@ -1,10 +1,10 @@
-<glyph icon={{glyphName}}
-       tooltipSource
+<material-icon [icon]="glyph"
+       popupSource
        size="large"
-       #ref="tooltipSource">
-</glyph>
+       #source="popupSource">
+</material-icon>
 
-<material-popup [source]="ref"
+<material-popup [source]="source"
                 enforceSpaceConstraints
                 [autoDismiss]="false">
     <div class="source-popup">

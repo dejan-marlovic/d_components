@@ -1,7 +1,8 @@
-<div id="d_top"
-     [class.follow]="!isTop"
-     style.height="{{height}}px"
-     style.top="{{-offset}}px"
-     style.background-color="{{backgroundColor}}">
+<div
+        [class.follow]="!isTop"
+        style.height="{{height}}px"
+        style.top="{{-offset}}px"
+        style.background-color="{{backgroundColor}}"
+        id="navContainer">
     <ng-content></ng-content>
 </div>
