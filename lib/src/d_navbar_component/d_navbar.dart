@@ -8,14 +8,15 @@ import 'package:angular/angular.dart';
     selector: 'd-navbar',
     styleUrls: const ['d_navbar.css'],
     templateUrl: 'd_navbar.html')
-class NavbarComponent implements OnInit, AfterViewInit {
+class NavbarComponent implements OnInit {
   NavbarComponent(this.host);
 
   @override
   void ngOnInit() {
     _parentElement = trackDocument ? document.documentElement : host.parent;
-    
     final s = trackDocument ? window : host.parent;
+    print('s: $s');
+
     s.onScroll.listen((event) {
       if (alwaysShow) {
         offset = 0;
@@ -26,20 +27,6 @@ class NavbarComponent implements OnInit, AfterViewInit {
         _previousScrollY = _parentElement.scrollTop;
       }
     });
-  }
-
-  @override
-  void ngAfterViewInit() {
-    /**
-     * Make sure nav doesn't overflow container scrollbar
-     */
-    //final navContainer = host.querySelector('#navContainer');
-   /*
-    navContainer.style.width = '${_parentElement.clientWidth}px';
-   
-    window.onResize.listen((_) {
-      navContainer.style.width = '${_parentElement.clientWidth}px';
-    });*/
   }
 
   int _clamp(int value, int minimum, int maximum) =>
