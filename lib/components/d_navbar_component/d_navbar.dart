@@ -14,7 +14,6 @@ class NavbarComponent implements OnInit {
   @override
   void ngOnInit() {
     _parentElement = trackDocument ? document.documentElement : host.parent;
-<<<<<<< HEAD:lib/src/d_navbar_component/d_navbar.dart
     final s = trackDocument ? window : host.parent;
     if (s != null) {
       s.onScroll.listen((event) {
@@ -27,19 +26,6 @@ class NavbarComponent implements OnInit {
         }
       });
     }
-=======
-
-    final s = trackDocument ? window : host.parent;
-    s.onScroll.listen((event) {
-      if (alwaysShow) {
-        offset = 0;
-      } else {
-        final deltaScrollY = _parentElement.scrollTop - _previousScrollY;
-        offset = _clamp(offset + deltaScrollY, 0, height);
-        _previousScrollY = _parentElement.scrollTop;
-      }
-    });
->>>>>>> 9c5ff86c704a6dd83d333bb731ca9f5327796b23:lib/components/d_navbar_component/d_navbar.dart
   }
 
   int _clamp(int value, int minimum, int maximum) =>
