@@ -7,9 +7,9 @@ import 'package:angular_components/angular_components.dart';
 
 @Component(
     selector: 'd-colorpicker',
-    styleUrls: const ['d_colorpicker.css'],
-    templateUrl: 'd_colorpicker.html',    
-    directives: const [materialInputDirectives, formDirectives],
+    styleUrls: ['d_colorpicker.css'],
+    templateUrl: 'd_colorpicker.html',
+    directives: [materialInputDirectives, formDirectives],
     changeDetection: ChangeDetectionStrategy.OnPush)
 class ColorPickerComponent implements OnDestroy {
   ColorPickerComponent() : instanceNo = _instanceCounter {
@@ -31,10 +31,10 @@ class ColorPickerComponent implements OnDestroy {
 
   String _color = '#fff';
   final StreamController<String> _valueStreamController =
-      new StreamController.broadcast();
+      StreamController.broadcast();
 
-  ControlGroup form = new ControlGroup({
-    'color': new Control('', cssColor),
+  ControlGroup form = ControlGroup({
+    'color': Control('', cssColor),
   });
 
   @Input('value')
@@ -42,6 +42,8 @@ class ColorPickerComponent implements OnDestroy {
   set colorExternal(String value) {
     _color = value;
   }
+
+  String get colorExternal => _color;
 
   @Output('valueChange')
   Stream<String> get colorOutput => _valueStreamController.stream;
@@ -51,7 +53,7 @@ class ColorPickerComponent implements OnDestroy {
 }
 
 Map<String, String> cssColor(AbstractControl control) {
-  final pattern = new RegExp(r'(^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$)');
+  final pattern = RegExp(r'(^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$)');
   final result = pattern.stringMatch(control.value);
 
   if (result == null || result.length != control.value.length)
